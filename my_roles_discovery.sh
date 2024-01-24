@@ -4,7 +4,7 @@
 AWS_REGION=$1
 
 # Get list of IAM roles
-role=$(aws iam list-roles --region $AWS_REGION --query "Roles[*].[RoleName,Arn]" --output text)
+roles=$(aws iam list-roles --region $AWS_REGION --query "Roles[*].[RoleName,Arn]" --output text)
 
 # Output headers to CSV file
 echo "RoleName,RoleArn,AttachedPolicies" > $2
